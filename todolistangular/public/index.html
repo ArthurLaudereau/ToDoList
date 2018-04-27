@@ -32,16 +32,24 @@
 	<div class="container">
 
 		<!-- HEADER AND TODO COUNT -->
-		<div class="jumbotron text-center">
-			<h1>I'm a Todo-aholic <span class="label label-info">{{ todos.length }}</span></h1>
+		<div class="col-sm-12 col-sm-offset-12 TODO">
+		<div class="col-sm-4 text-center">
+			<h1>TO DO <span class="label label-info">{{ todos.length }}</span></h1>
+		</div>
+		<div class="col-sm-4 text-center DOING">
+			<h1>DOING <span class="label label-info">{{ todos.length }}</span></h1>
+		</div>
+		<div class="col-sm-4 text-center DONE">
+			<h1>DONE <span class="label label-info">{{ todos.length }}</span></h1>
+		</div>
 		</div>
 
 		<!-- TODO LIST -->
 		<div id="todo-list" class="row">
-			<div class="col-sm-4 col-sm-offset-4">
-
+			<div class="col-sm-12 col-sm-offset-12">
+				<div class="col-sm-4 ">
 				
-
+					<!-- TO DO -->
 				<!-- LOOP OVER THE TODOS IN $scope.todos -->
 				<div class="checkbox" ng-repeat="todo in todos">
 					<label>
@@ -53,28 +61,50 @@
 					<span class="fa fa-spinner fa-spin fa-3x"></span>
 				</p>
 
-			</div>
-		</div>
+				</div>
 
+				
+				
+						<!-- DOING -->
+						<div class="col-sm-4 "></div>
+						<!-- DONE -->
+						<div class="col-sm-4 "></div>
+						
+		</div>
 		<!-- FORM TO CREATE TODOS -->
 		<div id="todo-form" class="row">
-			<div class="col-sm-8 col-sm-offset-2 text-center">
+			<div class="col-sm-8  text-center">
 				<form>
 					<div class="form-group">
 
 						<!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
-						<input type="text" class="form-control input-lg text-center" placeholder="I want to buy a puppy that will love me forever" ng-model="formData.text">
+						<input type="text" class="form-control input-lg text-center" placeholder="Oui messire ? Oui monseigneur !" ng-model="formData.text">
 					</div>
 
 					<!-- createToDo() WILL CREATE NEW TODOS -->
 					<button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Add</button>
 				</form>
 			</div>
-		</div>
+			
+			<!-- Liste déroulante avec les options des colonnes -->
+			<div class="col-sm-4 text-center">
+				<form>
+					<div class="form-group">
+						<select name="list" ng-model="formData.list">
 
+						<option value="TODO" selected="selected">TO DO</option>
+						<option value="DOING">DOING</option>
+						<option value="DONE">DONE</option>
+					
+						</select>
+					</div>
+				</form>
+			</div>
+		</div>
+		
 		<div class="text-center text-muted">
-			<p>A demo by <a href="http://scotch.io">Scotch</a>.</p>
-			<p>Read the <a href="http://scotch.io/tutorials/javascript/creating-a-single-page-todo-app-with-node-and-angular">tutorial</a>.</p>
+			<p>Fait avec amour et ce <a href="http://scotch.io/tutorials/javascript/creating-a-single-page-todo-app-with-node-and-angular">tutorial</a>.</p>
+			<p>Trouvé sur le fabuleux site <a href="http://scotch.io">Scotch</a>.</p>
 		</div>
 
 	</div>
