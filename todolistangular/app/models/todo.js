@@ -7,7 +7,7 @@ module.exports = mongoose.model('Todo', {
     },
     list:{
         type: String,
-        enum: ["TO DO", "DOING", "DONE"]
+        default: ''
     }
 
 });
