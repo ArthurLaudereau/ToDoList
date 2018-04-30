@@ -29,10 +29,11 @@ module.exports = function (app) {
             text: req.body.text,
             list: req.body.list, //c'est bien dans la db !
             done: false
+            
         }, function (err, todo) {
             if (err)
                 res.send(err);
-            console.log(req); //a permis de voir que le body stocke bien le string dans list: 
+            //console.log(req); //a permis de voir que le body stocke bien le string dans list: 
             // get and return all the todos after you create another
             getTodos(res);
         });

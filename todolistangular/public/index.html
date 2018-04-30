@@ -32,7 +32,7 @@
 	<div class="container">
 
 		<!-- HEADER AND TODO COUNT -->
-		<div class="col-sm-12 col-sm-offset-12 TODO">
+		<div class="col-sm-12 col-sm-offset-12">
 		<div class="col-sm-4 text-center">
 			<h1>TODO <span class="label label-info">{{ todos.length }}</span></h1>
 		</div>
@@ -47,13 +47,13 @@
 		<!-- TODO LIST -->
 		<div id="todo-list" class="row">
 			<div class="col-sm-12 col-sm-offset-12">
-				<div class="col-sm-4 ">
+				<div class="col-sm-4 TODO">
 				
 					<!-- TO DO -->
 				<!-- LOOP OVER THE TODOS IN $scope.todos -->
-				<div class="checkbox" ng-repeat="todo in todos">
+				<div class="checkbox" ng-if="todo.list=='TODO'" ng-repeat="todo in todos">
 					<label>
-						<input type="checkbox" ng-click="deleteTodo(todo._id)"> {{ todo.text }}
+						<input type="checkbox"  ng-click="deleteTodo(todo._id)"> {{ todo.text }}
 					</label>
 				</div>
 
@@ -66,9 +66,32 @@
 				
 				
 						<!-- DOING -->
-						<div class="col-sm-4 "></div>
+						<div class="col-sm-4 DOING">
+							<!-- LOOP OVER THE TODOS IN $scope.todos -->
+							<div class="checkbox" ng-if="todo.list=='DOING'" ng-repeat="todo in todos">
+									<label>
+										<input type="checkbox" ng-click="deleteTodo(todo._id)"> {{ todo.text }}
+									</label>
+								</div>
+		
+								<p class="text-center" ng-show="loading">
+									<span class="fa fa-spinner fa-spin fa-3x"></span>
+								</p>
+						</div>
+
 						<!-- DONE -->
-						<div class="col-sm-4 "></div>
+						<div class="col-sm-4 DONE">
+							<!-- LOOP OVER THE TODOS IN $scope.todos -->
+							<div class="checkbox" ng-if="todo.list=='DONE'" ng-repeat="todo in todos">
+									<label>
+										<input type="checkbox" ng-click="deleteTodo(todo._id)"> {{ todo.text }}
+									</label>
+								</div>
+		
+								<p class="text-center" ng-show="loading">
+									<span class="fa fa-spinner fa-spin fa-3x"></span>
+								</p>
+						</div>
 						
 		</div>
 		<!-- FORM TO CREATE TODOS -->

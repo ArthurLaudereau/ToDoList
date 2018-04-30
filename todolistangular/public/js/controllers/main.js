@@ -30,7 +30,8 @@ angular.module('todoController', [])
 					.success(function(data) {
 						$scope.loading = false;
 						$scope.formData = {}; // clear the form so our user is ready to enter another
-						//$scope.formData.list.value = "TO DO"; //Reset de la position de la liste, mais ça marche pas pour l'instant
+						//$scope.formData.list.value = "TODO"; //Reset de la position de la liste, mais ça marche pas pour l'instant
+						
 						$scope.todos = data; // assign our new list of todos
 					});
 			}
